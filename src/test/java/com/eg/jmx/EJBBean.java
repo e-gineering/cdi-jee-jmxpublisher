@@ -1,6 +1,7 @@
 package com.eg.jmx;
 
 
+import net.gescobar.jmx.annotation.DescriptorFields;
 import net.gescobar.jmx.annotation.Impact;
 import net.gescobar.jmx.annotation.ManagedAttribute;
 import net.gescobar.jmx.annotation.ManagedOperation;
@@ -40,5 +41,11 @@ public class EJBBean {
 	@ManagedOperation(description = "Decrements and returns the new counter value.", impact = Impact.ACTION_INFO)
 	public long decrement() {
 		return counter.decrementAndGet();
+	}
+
+	@ManagedOperation(description = "Add a delta and return the new counter value.", impact = Impact.ACTION_INFO)
+	@DescriptorFields({"p0=delta;The delta to subtract."})
+	public long addAndGet(long delta) {
+		return counter.addAndGet(delta);
 	}
 }

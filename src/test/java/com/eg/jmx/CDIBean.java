@@ -37,4 +37,11 @@ public class CDIBean {
 	public long decrement() {
 		return counter.decrementAndGet();
 	}
+
+
+	@ManagedOperation(description = "Add a delta and return the new counter value.", impact = Impact.ACTION_INFO)
+	@DescriptorFields({"p0=delta;The delta to subtract."})
+	public long addAndGet(long delta) {
+		return counter.addAndGet(delta);
+	}
 }
