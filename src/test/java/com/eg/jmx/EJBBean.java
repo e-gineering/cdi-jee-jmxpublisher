@@ -1,19 +1,23 @@
 package com.eg.jmx;
 
-import com.eg.jmx.MBean;
-import net.gescobar.jmx.annotation.Description;
-import net.gescobar.jmx.annotation.DescriptorFields;
+
 import net.gescobar.jmx.annotation.Impact;
 import net.gescobar.jmx.annotation.ManagedAttribute;
 import net.gescobar.jmx.annotation.ManagedOperation;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.ConcurrencyManagement;
+import javax.ejb.ConcurrencyManagementType;
+import javax.ejb.EJB;
+import javax.ejb.LocalBean;
+import javax.ejb.Singleton;
 import java.util.concurrent.atomic.AtomicLong;
 
-@ApplicationScoped
-@MBean(type = "CDI")
-@Description("A simple CDI bean")
-public class CDIBean {
+@Singleton
+@LocalBean
+@ConcurrencyManagement(ConcurrencyManagementType.CONTAINER)
+@MBean(type = "EJB")
+@EJB(beanInterface = EJBBean.class, name = "java:global/EJBBean")
+public class EJBBean {
 
 	private AtomicLong counter = new AtomicLong(0);
 
