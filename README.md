@@ -10,6 +10,12 @@ it trivial to expose `@ApplicationScoped` CDI beans, or `@Singleton` `@EJB` bean
 
 ### Building & Installing
 
+
+This project is based on a fork of jmx-annotations -- with a pending upstream pull request.
+You will need to clone https://github.com/bvarner/jmx-annotations and `mvn clean install` that project prior to building
+and installing cdi-jee-jmxpublisher.
+
+
 Use maven to build and install the project locally (or to a local nexus repo)
 
 ```
