@@ -40,6 +40,36 @@ Once you have this project built and installed to a maven repository you can add
 ```
 
 
+### Example Class
+```
+@ApplicationScoped
+@MBean("foo.bar:name=", type = "YourDiscriminator")
+@Description("This description becomes part of the JMX metadata")
+public class Foo {
+
+    private Long bar = 0;
+
+    @ManagedAttribute(description = "A description about the 'bar' attribute.")
+    public long getBar() {
+        return bar;
+    }
+
+    public void setBar(long bar) {
+        this.bar = bar;
+    }
+
+    @ManagedOperation(description = "This describes doing something.", impact = Impact.ACTION_INFO)
+    @DescriptorFields({"p0=withThis;Description of the withThis field...",
+                       "p1=andThis;Description of the andThis field..."})
+    public long doSomethingFun(long withThis, String andThis) {
+        ...
+    }
+}
+```
+
+When the class above is added to the CDI context, an MBean will be created with the ObjectName of 'foo.bar:name=Foo,type=YourDiscriminator' and published to the JMX platform mbean server. This MBean will expose the Foo attribute as readable and writable (you can control this with the annotations) and the annotated method.
+
+
 ### Annotation Guide
 
 Add `@MBean` to the class whose instance you'd like to publish in JMX.
