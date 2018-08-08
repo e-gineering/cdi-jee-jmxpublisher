@@ -110,7 +110,7 @@ when exposing methods over EJBs. While you can `@MBean` publish EJBs which are *
 a bit more careful with what you expose and how you expose it.
 
 To handle publishing EJBs, a type of dynamic proxy is registered with the MBeanServer which exposes the annotated attributes and methods of the `@EJB` class. When the MBeanServer invokes the dynamic proxy, it locates an instance of the EJB, then invokes the attribute or method on the located target.
-See the [EJBBean.java](/src/test/java/com/eg/jmx/CDIBean.java) example.
+See the [EJBBean.java](/src/test/java/com/eg/jmx/EJBBean.java) example.
 
 This has a few consequences.
 

@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.eg</groupId>
+    <groupId>com.e-gineering</groupId>
     <artifactId>cdi-jee-jmxpublisher</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <packaging>jar</packaging>
 
@@ -37,9 +37,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>net.gescobar</groupId>
+            <groupId>com.e-gineering</groupId>
             <artifactId>jmx-annotations</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.spec</groupId>
@@ -144,6 +144,5 @@
                 </plugins>
             </build>
         </profile>
-
     </profiles>
 </project>
